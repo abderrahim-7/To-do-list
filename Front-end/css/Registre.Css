@@ -1,0 +1,93 @@
+body{
+    background-image: url(Registre_Background.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment:fixed ;
+    font-family: 'Poiret One',sans-serif;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-bottom: 3%;
+}
+h1{
+    font-size: 250%;
+}
+
+section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5%;
+}
+
+.border{
+    width: 25vw;
+    height: 55vh;
+    border: 0.3vw white solid;
+    border-radius: 4%;
+    backdrop-filter: blur(1vw);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+h3{
+    font-size: 150%;
+    color: white;
+    margin-bottom: 10%;
+}
+
+.dataField{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    column-gap: 7%;
+}
+
+.dataField input{
+    height: 27%;
+    width: 60%;
+    border: none;
+    border-radius: 0.3vw;
+    font-family: "Poiret One",sans-serif;
+    font-weight: bold;
+}
+
+.dataField h4{
+    font-size: 110%;
+    color: white;
+}
+
+button{
+    height: 7%;
+    width: 25%;
+    margin-top: 10%;
+    margin-bottom: 0%;
+    border-radius: 0.3vw;
+    border: none;
+    background-image: linear-gradient(15deg,rgb(11, 162, 255),rgb(239, 116, 239));
+    color: white;
+    cursor: pointer;
+    transition: height 0.3s,width 0.5s;
+}
+
+button:hover{
+    height: 8%;
+    width: 26%;
+}
+
+a{
+    margin-top: 2%;
+    transition: color 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+}
+a:hover{
+    color: white;
+}

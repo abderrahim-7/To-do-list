@@ -1,0 +1,178 @@
+body{
+    background-image: url(Login_Background.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment:fixed ;
+    
+}
+
+/* Include the padding and border in an element's total width and height for all elements */
+
+* {
+    box-sizing: border-box;
+}
+
+
+/* Remove margins and padding from the list */
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Style the list items */
+
+ul li {
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    margin-top: 5px;
+    backdrop-filter: blur(1vw);
+    border: 3px solid white;
+    border-radius: 15px;
+    background: #ffffff82;
+    font-size: 18px;
+    transition: 0.2s;
+    color: rgb(58, 0, 58);;
+}
+
+
+ul li:hover {
+    background: #ddd;
+}
+
+
+ul li.checked {
+    background: #34004787;
+    color: #ffffff;
+    text-decoration: line-through;
+    .close{
+        color: white;
+    }
+}
+
+
+ul li.checked::before {
+    /* content: '' Creates an empty floats before the element */
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    /* 
+    The "border-width: 0 2px 2px 0" property is creating almost an ⅃, 
+    and then rotates the ⅃ using "transform: rotate(45deg)" to create the tick mark
+    */
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    top: 10px;
+    left: 16px;
+    height: 15px;
+    width: 7px;
+}
+
+/* Style the delete button */
+
+.close {
+    position: absolute;
+    right: 4px;
+    top: 2px;
+    padding: 12px 16px 12px 16px;
+    border-radius: 15px;
+    color : rgb(58, 0, 58);
+}
+
+.close:hover {
+    background-image: linear-gradient(rgb(113, 12, 113),orange);
+    color: white;
+    cursor: pointer;
+}
+
+
+/* Style the header */
+
+.header {
+    background-color: transparent;
+    padding: 30px 40px;
+    color: white;
+    text-align: center;
+    font-size: larger;
+    font-family: 'Poiret One',sans-serif;
+}
+
+
+/* 
+Use the ::after selector to insert something after the content.
+Use the content property to specify the content to insert.
+
+ */
+
+.header:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/* Style the input */
+
+input {
+    margin: 0 1% 0 0;
+    border: none;
+    border-radius: 20px;
+    width: 70%;
+    padding: 10px;
+    float: left;
+    font-size: 16px;
+}
+
+
+/* Style the "Add" button */
+
+.addBtn {
+    padding: 10px;
+    width: 25%;
+    background: #d9d9d9;
+    color: #555;
+    float: left;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.addBtn:hover {
+    background-color: #e7e6e6;
+}
+
+button {
+    outline: 0;
+    border: none;
+    background-color: transparent;
+}
+
+#logout_container{
+    width: 100%;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#logout {
+    border-radius: 5px;
+    background-color: white;
+    width: 10%;
+    height: inherit;
+    font-size: 16;
+    color: black;
+    cursor: pointer;
+    transition: font-size 0.5s, transform 0.5s;
+}
+
+#logout:hover{
+    transform: scale(1.1,1.1);
+    font-size: 17;
+}
