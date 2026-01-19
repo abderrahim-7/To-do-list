@@ -18,21 +18,34 @@ const loadTask = async (req,res) => {
         }
 }
 
-const addTask = async (req,res) => {
-    try{
-        const username = req.session.user.username
-        const {taskName,taskStatus} = req.body
-        const Query = "Insert into task (task,state,username) values ($1,$2,$3);"
-        const Values = [taskName,taskStatus,username]
-        const result = await client.query(Query, Values);
+const addTask = async (req, res) => {
+    try {
+        const username = req.session.user.username;
+        const { taskName, taskStatus } = req.body;
 
-        res.status(201).json({message : "Task added successfully"})
+        const regexPattern = `^${taskName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(\\([0-9]+\\))?$`; 
+
+        const query1 = "SELECT COUNT(*) FROM task WHERE task ~ $1 AND username = $2";
+        const values1 = [regexPattern, username];
+        const result1 = await client.query(query1, values1);
+
+        const n = parseInt(result1.rows[0].count);
+        const suffix = n > 0 ? `(${n})` : '';
+        const finalTaskName = taskName + suffix;
+
+        const query2 = "INSERT INTO task (task, state, username) VALUES ($1, $2, $3)";
+        await client.query(query2, [finalTaskName, taskStatus, username]);
+
+        res.status(201).json({ 
+            message: "Task added successfully",
+            finalTaskName
+        });
+    } catch (err) {
+        console.error("Database Error:", err);
+        res.status(500).json({ err: "Internal Server Error" });
     }
-    catch(err){
-        console.error("Database Error:", err);  
-        res.status(500).json({err : "Internal Server Error"})
-    }
-}
+};
+
 
 const checkTask = async (req,res) => {
     try{

@@ -58,45 +58,48 @@ document.addEventListener("click",function(event){
 })
 
 
-let newTask = function(){
-    let text = inputText.value
+let newTask = function() {
+    let text = inputText.value.trim();
 
-    if (text == ''){
-        alert('there is no text !!!')
+    if (text === '') {
+        alert('There is no text!!!');
+        return;
     }
-    else{
+    fetch("/addTask", {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ taskName: text, taskStatus: false })
+    })
+    .then(response => response.json())
+    .then(data => {
+        const finalName = data.finalTaskName;
 
-        fetch("/addTask",{
-            method : 'POST',
-            headers : {
-                'Content-Type' : 'application/json'
-            },
-            body: JSON.stringify({ 
-                taskName: text, 
-                taskStatus: false 
-            })
-        })
-        .then(response => response.json())
-        .then(data => console.log('Response from server:', data))
-        .catch(error => console.error('Error:', error));
+        let new_task = document.createElement('LI');
+        new_task.textContent = finalName;
 
-        let new_task = document.createElement('LI')
-        new_task.textContent = text
-        new_task.addEventListener('click',function(){
-            new_task.classList.toggle('checked')
-        })
-        let delete_button = document.createElement("button")
-        delete_button.className = "close"
-        delete_button.textContent = "Delete"
-        delete_button.addEventListener('click',function(){
-            const parent = delete_button.parentElement
-            parent.style.display = 'none'
-        })
-        new_task.appendChild(delete_button)
-        list.appendChild(new_task)
-        inputText.value = ''
-    }
-}
+        new_task.addEventListener('click', function() {
+            new_task.classList.toggle('checked');
+            checkTask(finalName);
+        });
+
+        let delete_button = document.createElement("button");
+        delete_button.className = "close";
+        delete_button.textContent = "Delete";
+        delete_button.addEventListener('click', function(event) {
+            event.stopPropagation();
+            const parent = delete_button.parentElement;
+            deleteTask(finalName);
+            parent.style.display = 'none';
+        });
+
+        new_task.appendChild(delete_button);
+        list.appendChild(new_task);
+
+        inputText.value = '';
+    })
+    .catch(error => console.error('Error:', error));
+};
+
 
 let loadTask = function(taskName,taskStatus){
     let text = taskName
