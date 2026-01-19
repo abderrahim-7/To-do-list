@@ -13,7 +13,7 @@ const Register = async (req,res) => {
             res.json({success : false, reason : 'username or password is invalid'})
         }
         else{
-            const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
+            const hashedPassword = await bcrypt.hash(password, 10);
             const Query = "INSERT INTO users VALUES ($1,$2)"
             const Values = [username,hashedPassword]
             await client.query(Query,Values)
