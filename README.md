@@ -53,18 +53,18 @@ This project was built as my **first full-stack web application**.
 
 ### ➕ Creating a Task
 
-![Add Task](Capture%20d'écran%202026-01-19%20214541.png)
-![Task Added](Capture%20d'écran%202026-01-19%20214529.png)
+![Add Task](Capture%20d'écran%202026-01-19%20214529.png)
+![Task Added](Capture%20d'écran%202026-01-19%20214541.png)
 
 ### ✅ Marking Tasks as Done
 
-![Task Done](Capture%20d'écran%202026-01-19%20214619.png)
-![Task Done 2](Capture%20d'écran%202026-01-19%20214607.png)
+![Task Done](Capture%20d'écran%202026-01-19%20214607.png)
+![Task Done 2](Capture%20d'écran%202026-01-19%20214619.png)
 
 ### 🗑️ Deleting a Task
 
-![Delete Task](Capture%20d'écran%202026-01-19%20214638.png)
-![Task Deleted](Capture%20d'écran%202026-01-19%20214630.png)
+![Delete Task](Capture%20d'écran%202026-01-19%20214630.png)
+![Task Deleted](Capture%20d'écran%202026-01-19%20214638.png)
 
 ---
 
@@ -112,7 +112,3 @@ Create a .env file based on .env.example and add your configuration variables.
 
 Abdrahim Benali
 Software Engineering Student at INPT
-
-```
-
-```
