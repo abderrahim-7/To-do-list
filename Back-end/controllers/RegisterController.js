@@ -1,5 +1,6 @@
 const path = require("path");
 const client = require("../db");
+const bcrypt = require("bcrypt");
 
 const getRegisterPage = async (req,res) => {
     res.sendFile(path.join(__dirname,"..","..","Front-end","Register.html"))
@@ -12,8 +13,9 @@ const Register = async (req,res) => {
             res.json({success : false, reason : 'username or password is invalid'})
         }
         else{
+            const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
             const Query = "INSERT INTO users VALUES ($1,$2)"
-            const Values = [username,password]
+            const Values = [username,hashedPassword]
             await client.query(Query,Values)
 
             req.session.user = {username}
