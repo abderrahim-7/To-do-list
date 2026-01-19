@@ -133,19 +133,27 @@ input {
 .addBtn {
     padding: 10px;
     width: 25%;
-    background: #d9d9d9;
-    color: #555;
+    background: rgb(255, 255, 255);
+    color: #6A3093;
     float: left;
     text-align: center;
     font-size: 16px;
+    font-family: 'Poiret One';
+    font-weight: 600;
     border-radius: 20px;
     cursor: pointer;
-    transition: 0.3s;
+    border: 2px solid #6A3093;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
 }
 
 .addBtn:hover {
-    background-color: #e7e6e6;
+    background: #FF7E5F;
+    color: white;
+    transform: scale(1.03);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.25);
 }
+
 
 button {
     outline: 0;
@@ -162,17 +170,21 @@ button {
 }
 
 #logout {
-    border-radius: 5px;
-    background-color: white;
-    width: 10%;
-    height: inherit;
-    font-size: 16;
-    color: black;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #FF7E5F, #FEB47B, #6A3093);
+    width: 120px; 
+    height: 40px;  
+    font-size: 16px;
+    color: white;
+    font-family:  'Poiret One';
+    font-weight: bold;
+    border: none;
     cursor: pointer;
-    transition: font-size 0.5s, transform 0.5s;
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
 }
 
-#logout:hover{
-    transform: scale(1.1,1.1);
-    font-size: 17;
+#logout:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+    background: linear-gradient(135deg, #FEB47B, #FF7E5F, #6A3093);
 }
