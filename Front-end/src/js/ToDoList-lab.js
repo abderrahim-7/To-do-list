@@ -83,7 +83,7 @@ let newTask = function(){
         let new_task = document.createElement('LI')
         new_task.textContent = text
         new_task.addEventListener('click',function(){
-            new_task.className.toggle('checked')
+            new_task.classList.toggle('checked')
         })
         let delete_button = document.createElement("button")
         delete_button.className = "close"
